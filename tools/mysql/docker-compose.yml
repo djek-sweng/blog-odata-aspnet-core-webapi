@@ -1,0 +1,31 @@
+# Run docker container:
+#   docker compose up --remove-orphans
+#
+# MySQL server login credentials:
+#   username=root
+#   password=pasSworD
+#
+# MySQL server connection string:
+#   "Server=localhost; Port=4200; Username=root; Password=pasSworD; Database=db_odata_aspnet;"
+#
+version: '3.2'
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pasSworD
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+    ports:
+      - "4200:3306"
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "4300:8080"

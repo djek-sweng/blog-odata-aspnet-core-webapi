@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataSample.Library", "ODataSample.Library\ODataSample.Library.csproj", "{4FD41180-C9C8-4AC3-96AB-AC73C2167EC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataSample.WebApi", "ODataSample.WebApi\ODataSample.WebApi.csproj", "{92B6749F-5CF2-47CB-8FAF-1F5098FE5313}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{A9C371BB-59F3-48F5-B3B5-57E183DA3249}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.targets = Directory.Build.targets
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5958EA1B-044E-4166-9872-E203C491EC7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FD41180-C9C8-4AC3-96AB-AC73C2167EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FD41180-C9C8-4AC3-96AB-AC73C2167EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FD41180-C9C8-4AC3-96AB-AC73C2167EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FD41180-C9C8-4AC3-96AB-AC73C2167EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92B6749F-5CF2-47CB-8FAF-1F5098FE5313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92B6749F-5CF2-47CB-8FAF-1F5098FE5313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92B6749F-5CF2-47CB-8FAF-1F5098FE5313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92B6749F-5CF2-47CB-8FAF-1F5098FE5313}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4FD41180-C9C8-4AC3-96AB-AC73C2167EC3} = {5958EA1B-044E-4166-9872-E203C491EC7F}
+		{92B6749F-5CF2-47CB-8FAF-1F5098FE5313} = {5958EA1B-044E-4166-9872-E203C491EC7F}
+	EndGlobalSection
+EndGlobal

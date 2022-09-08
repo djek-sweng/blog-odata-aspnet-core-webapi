@@ -1,0 +1,510 @@
+{
+	"info": {
+		"_postman_id": "363862b1-6999-4e11-bebc-41b5c6ff0878",
+		"name": "ODataSample.WebApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20996595"
+	},
+	"item": [
+		{
+			"name": "Calendars Query",
+			"item": [
+				{
+					"name": "Calendars -- all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/calendars/query",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"calendars",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calendars -- all include meetings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/calendars/query?$expand=Meetings",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"calendars",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Meetings"
+								},
+								{
+									"key": "$expand",
+									"value": "Meetings($filter=Duration eq 42)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calendars -- all active",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/calendars/query?$filter=IsActive eq true",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"calendars",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "IsActive eq true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calendars -- all not active",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/calendars/query?$filter=IsActive eq false",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"calendars",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "IsActive eq false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calendars -- by owner",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/calendars/query?$filter=Owner eq 'Arthur Dent'",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"calendars",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "Owner eq 'Arthur Dent'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calendars -- all active owner order by",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/calendars/query?$select=IsActive,Owner,Type&$orderBy=Owner asc",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"calendars",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "IsActive eq true",
+									"disabled": true
+								},
+								{
+									"key": "$select",
+									"value": "IsActive,Owner,Type"
+								},
+								{
+									"key": "$orderBy",
+									"value": "Owner asc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Calendars List",
+			"item": [
+				{
+					"name": "Calendars -- all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/calendars/list",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"calendars",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Meetings Query",
+			"item": [
+				{
+					"name": "Meetings -- all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/meetings/query",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"meetings",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Meetings -- all include calendar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/meetings/query?$expand=Calendar",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"meetings",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Calendar"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Meetings -- all duration less than",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/meetings/query?$select=Title,Description",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"meetings",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "Title,Description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Meetings -- all duration greater than or equal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/meetings/query?$select=Title,Description,Duration&$filter=Duration ge 42",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"meetings",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "Title,Description,Duration"
+								},
+								{
+									"key": "$filter",
+									"value": "Duration ge 42"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Meetings -- all  include active calendar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/meetings/query?$expand=Calendar ($filter=IsActive eq true)&$expand=Calendar ($select=IsActive,Owner)&$select=Title,Description",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"meetings",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Calendar ($filter=IsActive eq true)"
+								},
+								{
+									"key": "$expand",
+									"value": "Calendar ($select=IsActive,Owner)"
+								},
+								{
+									"key": "$select",
+									"value": "Title,Description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Meetings -- all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/meetings/query?$select=Title,Duration&$orderBy=Duration asc",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"meetings",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "Title,Duration"
+								},
+								{
+									"key": "$orderBy",
+									"value": "Duration asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Meetings -- take=2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/meetings/query?$select=Title,Duration&$orderBy=Duration asc&$top=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"meetings",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "Title,Duration"
+								},
+								{
+									"key": "$orderBy",
+									"value": "Duration asc"
+								},
+								{
+									"key": "$top",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Meetings -- skip=2 take=2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/meetings/query?$select=Title,Duration&$orderBy=Duration asc&$skip=2&$top=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"meetings",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "Title,Duration"
+								},
+								{
+									"key": "$orderBy",
+									"value": "Duration asc"
+								},
+								{
+									"key": "$skip",
+									"value": "2"
+								},
+								{
+									"key": "$top",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Meetings -- skip=4 take=2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/meetings/query?$select=Title,Duration&$orderBy=Duration asc&$skip=4&$top=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"meetings",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "Title,Duration"
+								},
+								{
+									"key": "$orderBy",
+									"value": "Duration asc"
+								},
+								{
+									"key": "$skip",
+									"value": "4"
+								},
+								{
+									"key": "$top",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Meeting List",
+			"item": [
+				{
+					"name": "Meetings -- all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/meetings/list",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"meetings",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
