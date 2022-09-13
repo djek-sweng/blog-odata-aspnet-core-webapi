@@ -92,7 +92,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:5001/calendars/query?$filter=IsActive eq false",
+							"raw": "https://localhost:5001/calendars/query?$filter=IsActive ne true",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -105,7 +105,7 @@
 							"query": [
 								{
 									"key": "$filter",
-									"value": "IsActive eq false"
+									"value": "IsActive ne true"
 								}
 							]
 						}
@@ -132,6 +132,32 @@
 								{
 									"key": "$filter",
 									"value": "Owner eq 'Arthur Dent'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calendars -- by owner like",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/calendars/query?$filter=indexof(Owner, 'Arthur') gt -1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"calendars",
+								"query"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "indexof(Owner, 'Arthur') gt -1"
 								}
 							]
 						}
@@ -255,7 +281,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:5001/meetings/query?$select=Title,Description",
+							"raw": "https://localhost:5001/meetings/query?$select=Title,Description,Duration&$filter=Duration lt 42",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -268,7 +294,11 @@
 							"query": [
 								{
 									"key": "$select",
-									"value": "Title,Description"
+									"value": "Title,Description,Duration"
+								},
+								{
+									"key": "$filter",
+									"value": "Duration lt 42"
 								}
 							]
 						}
