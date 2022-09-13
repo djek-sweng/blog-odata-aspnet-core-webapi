@@ -37,17 +37,17 @@ If you have installed a MySQL database server on your computer, then you can als
 #### **Creating and setting up projects**
 At the beginning you have to install EF Core once on your computer. Optionally you execute the shell script [`ef_install.sh`](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/tools/dotnet/ef_install.sh).
 
-Then create a suitable project structure for [Library](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/tree/main/src/ODataSample.Library) and [WebApi](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/tree/main/src/ODataSample.WebApi) components. In the [`Directory.Build.targets`](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/src/Directory.Build.targets) file, you then add the necessary packages.
+Then create a suitable project structure for [Library](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/src/ODataSample.Library) and [WebApi](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/src/ODataSample.WebApi) components. In the [`Directory.Build.targets`](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/src/Directory.Build.targets) file, you then add the necessary packages.
 
 You can now create OData WebApi endpoints with ASP.NET Core. The packages give you access to the EF Core base and design-time components. Furthermore, components for relational database integration as well as Pomelo's MySQL database provider become available for EF Core.
 
 
 #### **Implementation of the model classes**
-The OData [model classes](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/tree/main/src/ODataSample.Library/Models) are already implemented by the EF Core entity classes `Calendar`, `Meeting` and `Reminder`.
+The OData [model classes](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/src/ODataSample.Library/Models) are already implemented by the EF Core entity classes `Calendar`, `Meeting` and `Reminder`.
 
 
 #### **Implementation of the controller classes**
-You implement the OData [controller classes](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/tree/main/src/ODataSample.WebApi/Controllers) in the following basic structure. Here the `CalendarController` class is shown as an example.
+You implement the OData [controller classes](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/src/ODataSample.WebApi/Controllers) in the following basic structure. Here the `CalendarController` class is shown as an example.
 
 ```csharp
 // File: CalendarController.cs
@@ -375,7 +375,7 @@ LIMIT 2;
 
 The generated SQL query limits the output with the `LIMIT` clause to two records. Additionally, the `ORDER BY` clause sorts in ascending order by the primary key `Id`. This way you always get the same output for this request.
 
-If you use the query option `$top` together with `$skip`, then [Pagination](https://schneide.blog/2021/06/14/pagination-in-sql/) of large records is possible. For the query option `$skip` the `OFFSET` clause is generated in your SQL query. You can find an example in the [GitHub Repository](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/tools/curl/calendars_query_top_skip.sh).
+If you use the query option `$top` together with `$skip`, then [Pagination](https://schneide.blog/2021/06/14/pagination-in-sql/) of large records is possible. For the query option `$skip` the `OFFSET` clause is generated in your SQL query. You can find an example in this [GitHub Repository](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/tools/curl/calendars_query_top_skip.sh).
 
 
 #### **Conclusion**
