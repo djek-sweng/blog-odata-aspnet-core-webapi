@@ -39,7 +39,7 @@ At the beginning you have to install EF Core once on your computer. Optionally y
 
 Then create a suitable project structure for [Library](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/src/ODataSample.Library) and [WebApi](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/src/ODataSample.WebApi) components. In the [`Directory.Build.targets`](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/src/Directory.Build.targets) file, you then add the necessary packages.
 
-You can now create OData WebApi endpoints with ASP.NET Core. The packages give you access to the EF Core base and design-time components. Furthermore, components for relational database integration as well as Pomelo's MySQL database provider become available for EF Core.
+You can now create OData WebApi endpoints with ASP.NET Core. The packages give you access to the EF Core base and design-time components. Furthermore, components for relational database integration as well as [Pomelo's MySQL](https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql) database provider become available for EF Core.
 
 
 #### **Implementation of the model classes**
@@ -88,7 +88,7 @@ public class CalendarController : ODataController
 
 Your controller class derives from the base class `ODataController`. The `HttpGet` methods get the `EnableQuery` attribute as a decorator. This enables the OData query options for the corresponding WebApi endpoints.
 
-The output of data of the types `IQueryable` or `ActionResult<IQueryable>` allows to translate OData queries directly into SQL queries and to execute them on the database server. In doing so, OData combines the capabilities of LINQ and EF Core.
+The output of data of the types `IQueryable` or `ActionResult<IQueryable>` allows to translate OData queries directly into SQL queries and to execute them on the database server. In doing so, OData combines the capabilities of [LINQ](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/) and EF Core.
 
 When outputting data of other types like `IReadOnlyList` or `IEnumerable` the OData queries are executed in the working memory (RAM) of the application. So the data must be loaded from the database into the working memory in advance. Afterwards the OData queries can be executed in the working memory.
 
@@ -386,3 +386,7 @@ Further steps for a productive use of OData will certainly be necessary. Mention
 You can find the complete code in this GitHub repository.
 
 Happy Coding!
+
+German version
+
+https://www.traperto.com/flexibler-datenbankzugriff-mit-odata/
