@@ -375,7 +375,7 @@ LIMIT 2;
 
 The generated SQL query limits the output with the `LIMIT` clause to two records. Additionally, the `ORDER BY` clause sorts in ascending order by the primary key `Id`. This way you always get the same output for this request.
 
-If you use the query option `$top` together with `$skip`, then [Pagination](https://schneide.blog/2021/06/14/pagination-in-sql/) of large records is possible. For the query option `$skip` the `OFFSET` clause is generated in your SQL query. You can find an example in this [GitHub Repository](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/tools/curl/calendars_query_top_skip.sh).
+If you use the query option `$top` together with `$skip`, then [pagination](https://schneide.blog/2021/06/14/pagination-in-sql/) of large records is possible. For the query option `$skip` the `OFFSET` clause is generated in your SQL query. You can find an example in this [GitHub repository](https://github.com/djek-sweng/blog-odata-aspnet-core-webapi/blob/main/tools/curl/calendars_query_top_skip.sh).
 
 
 #### **Conclusion**
